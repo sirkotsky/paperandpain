@@ -8,5 +8,13 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: [],
+  siteMetadata: {
+    title: `Paper and Pain`,
+    description: `Scaling and growing your business sustainably using open source technology.`,
+    siteUrl: `https://paperandpain.com`,
+    image: `/favicon.png`
+  },
+  plugins: [
+    `gatsby-plugin-sass`,
+  ]
 }
