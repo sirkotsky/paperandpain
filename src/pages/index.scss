@@ -1,24 +1,76 @@
 @import "./normalise.scss";
 
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    font-family: 'Alice', serif;
-    background-color: #F5EBEB;
+    font-family: 'Inter', serif;
+    background-color: #F2F2F2;
 }
 
 main {
+    display: flex;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-    margin: 0 auto;
-    padding: 48px 0;
-    text-align: center;
+.container {
+    display: grid;
+    padding: 0 24px;
+    max-width: 1200px;
+    height: 100%;
+    margin: 24px auto;
+    --w: 280px;
+    --n: 3;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit,
+            minmax(max(var(--w), 100%/ (var(--n) + 1) + 0.1%), 1fr));
+    align-items: center;
+}
+
+.logo {
+    animation-name: spin;
+    animation-duration: 35000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.about {
+
+    @media screen and (min-width: 368px) {
+        grid-column: span 2;
+    }
+
+    & h1,
+    & p {
+        margin-top: 0;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 120%;
+        letter-spacing: -2.2px;
+    }
+
+    & a {
+        font-weight: 700;
+        letter-spacing: 0.48px;
+        text-decoration-line: underline;
+        text-transform: uppercase;
+        color: #002FA6;
+    }
 }
